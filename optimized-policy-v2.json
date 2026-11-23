@@ -1,0 +1,11 @@
+{
+  "expected": true,
+  "centers": {
+    "Instant": 0.03,
+    "Commercial": 0.04,
+    "Specialty": 0.05
+  },
+  "width": 0.035,
+  "maxBags": 5,
+  "scarcity": 0.6
+}

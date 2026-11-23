@@ -1,0 +1,6 @@
+{
+  "priceOffset": 0,
+  "maxBags": 3,
+  "failureStep": 0.005,
+  "scarcity": 0.3
+}
