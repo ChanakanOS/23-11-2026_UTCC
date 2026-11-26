@@ -7,7 +7,7 @@ function chooseOffers(lots, buyers, capacity, r, numRounds, policy) {
   const quotes = [];
   for (const lot of lots) {
     if (!lot.left) continue;
-    const eligible = buyers.filter(b => b.bags && lot.quality >= b.minQuality);
+    const eligible = buyers.filter(b => b.bags && (b.accepts ? b.accepts(lot) : lot.quality >= b.minQuality));
     if (eligible.length) lot.eligible++;
     for (const b of eligible) {
       const failures = lot.priceFailures[b.name] || 0;

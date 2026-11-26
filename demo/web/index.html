@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Track 3 | ตลาดกาแฟจำลอง</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/dashboard.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap top">
+      <a class="wordmark" href="/trade"><span>03</span> COFFEE MARKET</a>
+      <span class="mode">ตลาดสาธิตออฟไลน์</span>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <h1 id="title">ตลาดซื้อขายกาแฟ</h1>
+        <p>เอเจนต์ประเมินมูลค่าและยื่นซองผ่าน Market API</p>
+      </div>
+      <form id="controls">
+        <label>เวลาต่อรอบ
+          <select id="speed">
+            <option value="4">4 วินาที</option>
+            <option value="8" selected>8 วินาที</option>
+            <option value="20">20 วินาที</option>
+            <option value="manual">กดไปรอบเอง</option>
+          </select>
+        </label>
+        <button class="primary" id="start" type="button">เริ่มเดโม</button>
+        <button id="advance" type="button" hidden>ไปขั้นถัดไป</button>
+        <button id="reset" type="button" hidden>เริ่มใหม่</button>
+      </form>
+    </section>
+    <p class="error" id="error" role="alert" hidden></p>
+    <section class="panel timeline" aria-labelledby="cal-title">
+      <div class="section-head">
+        <div><h2 id="cal-title">ปฏิทินตลาด</h2><p id="duration">รอเริ่มตลาด</p></div>
+        <div class="phase" id="phase" role="status">รอเริ่มตลาด</div>
+      </div>
+      <ol id="calendar" aria-label="รอบขาย"></ol>
+      <p class="legend"><span class="festival">เทศกาล · Specialty ต้องการเพิ่ม</span><span class="late">ช่วงความต้องการลดลง</span></p>
+    </section>
+    <section class="metrics" aria-label="สรุปผล">
+      <div><span>ยอดขาย</span><strong id="revenue">—</strong><small>บาท</small></div>
+      <div><span>ขายแล้ว</span><strong id="sold">—</strong><small>กก.</small></div>
+      <div><span>คงเหลือ</span><strong id="stock">—</strong><small>กก.</small></div>
+      <div class="pr"><span>Price Realization</span><strong id="pr">—</strong><small id="pr-note">แสดงเมื่อปิดตลาด</small></div>
+    </section>
+    <section class="panel scorecard" id="scorecard" hidden aria-labelledby="score-title">
+      <div class="section-head"><h2 id="score-title">ผลหลังปิดตลาด</h2></div>
+      <dl id="score"></dl>
+    </section>
+    <div class="columns">
+      <section class="panel" aria-labelledby="lot-title">
+        <div class="section-head"><h2 id="lot-title">ล็อตของทีม</h2><span class="subtle" id="appraisal"></span></div>
+        <div class="scroll"><table><thead><tr><th>ล็อต</th><th>ตำหนิ</th><th>ชื้น</th><th>Screen</th><th>กก. เหลือ</th></tr></thead><tbody id="lots"></tbody></table></div>
+      </section>
+      <section class="panel" aria-labelledby="rfq-title">
+        <div class="section-head"><h2 id="rfq-title">คำขอซื้อ</h2><span class="subtle" id="capacity"></span></div>
+        <div id="rfqs"></div>
+      </section>
+      <section class="panel" aria-labelledby="result-title">
+        <div class="section-head">
+          <h2 id="result-title">ซองและผลจับคู่</h2>
+          <label class="visually-hidden" for="result-picker">เลือกรอบที่จะดู</label>
+          <select id="result-picker"><option value="">ล่าสุด</option></select>
+        </div>
+        <div class="scroll"><table><thead><tr><th>ล็อต / RFQ</th><th>บาท/กก.</th><th>เสนอ</th><th>ขาย</th><th>สถานะ</th></tr></thead><tbody id="offers"></tbody></table></div>
+      </section>
+      <section class="panel" aria-labelledby="api-title">
+        <div class="section-head"><h2 id="api-title">Market API</h2><span id="agent" class="subtle"></span></div>
+        <ol id="events" aria-label="คำขอ API ล่าสุด"></ol>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
